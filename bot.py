@@ -4,7 +4,6 @@ intents = discord.Intents.all()
 import json
 import random
 import os
-import keep_alive
 
 with open('setting.json', mode='r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
@@ -36,5 +35,4 @@ for filename in os.listdir('./cmds'):
         bot.load_extension(f'cmds.{filename[:-3]}')
 
 if __name__ == "__main__":
-    keep_alive.keep_alive()
     bot.run(jdata['TOKEN'])
