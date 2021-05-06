@@ -20,15 +20,12 @@ class Event(Cog_Extention):
 
     @commands.Cog.listener()
     async def on_message(self, msg):
-        keyword = ('hi','嗨')
-        if msg.content in keyword and msg.author != self.bot.user:
-            await msg.channel.send('hi')
-
-    @commands.Cog.listener()
-    async def on_message(self, msg):
         keyword = ('我好帥')
+        a = ('hi','嗨')
         if msg.content in keyword and msg.author != self.bot.user:
             await msg.channel.send('不要在瞎掰了')
+        elif msg.content in a and msg.author != self.bot.user:
+            await msg.channel.send('hi')
 
 def setup(bot):
     bot.add_cog(Event(bot))

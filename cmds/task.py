@@ -12,7 +12,7 @@ class Task(Cog_Extention):
             self.channel = self.bot.get_channel(837314542853816324)
             while not self.bot.is_closed():
                 await self.channel.send('嗨,我是cat_mewo!')
-                await asyncio.sleep(600)#單位:秒
+                await asyncio.sleep()#單位:秒
 
         self.bg_task = self.bot.loop.create_task(interval())
 
