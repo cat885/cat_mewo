@@ -1,9 +1,11 @@
 import discord
 from discord.ext import commands
-intents = discord.Intents.all()
+import asyncio
 import json
 import random
 import os
+
+intents = discord.Intents.all()
 
 with open('setting.json', mode='r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
@@ -30,9 +32,13 @@ async def reload(ctx, extension):
     bot.reload_extension(f'cmds.{extension}')
     await ctx.send(f'Re-Loaded {extension} done.')
 
-for filename in os.listdir('./cmds'):
-    if filename.endswith('.py'):
-        bot.load_extension(f'cmds.{filename[:-3]}')
+async def load():
+    for filename in os.listdir('./cmds'):
+        if filename.endswith('.py'):
+            await bot.load_extension(f'cmds.{filename[:-3]}')
+            
+async def main():
+    await load()
+    await bot.start(jdata['TOKEN'])
 
-if __name__ == "__main__":
-    bot.run(jdata['TOKEN'])
+asyncio.run(main())

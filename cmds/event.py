@@ -27,5 +27,5 @@ class Event(Cog_Extention):
         elif msg.content in a and msg.author != self.bot.user:
             await msg.channel.send('hi')
 
-def setup(bot):
-    bot.add_cog(Event(bot))
+async def setup(bot):
+    await bot.add_cog(Event(bot))

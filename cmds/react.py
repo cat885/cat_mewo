@@ -16,5 +16,5 @@ class React(Cog_Extention):
         await ctx.send(file=pic)
 
 
-def setup(bot):
-    bot.add_cog(React(bot))
+async def setup(bot):
+    await bot.add_cog(React(bot))

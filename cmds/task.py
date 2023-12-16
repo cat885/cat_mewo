@@ -4,6 +4,8 @@ from core.classes import Cog_Extention
 import asyncio, json, datetime
 
 class Task(Cog_Extention):
+
+    '''
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
 
@@ -15,6 +17,7 @@ class Task(Cog_Extention):
                 await asyncio.sleep()#單位:秒
 
         self.bg_task = self.bot.loop.create_task(interval())
+    '''
 
     @commands.command()
     async def set_channel(self, ctx, ch:int):
@@ -24,5 +27,5 @@ class Task(Cog_Extention):
 
 
 
-def setup(bot):
-    bot.add_cog(Task(bot))
+async def setup(bot):
+    await bot.add_cog(Task(bot))
